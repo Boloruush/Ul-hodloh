@@ -1,128 +1,71 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(SecondApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SecondApp extends StatelessWidget {
+  const SecondApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("My ui"),
+        ),
+        body: Column(
+          children: [
+            Card(
+              elevation: 10,
+              child: ListTile(
+                leading: Icon(Icons.dehaze),
+                title: Text('Search in mail'),
+                trailing: Icon(Icons.account_circle),
+              ),
+            ),
+            const TitleRow(),
+            Mails(),
+          ],
+        ),
       ),
-      home: HomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
-  final europeanCountries = [
-    'Albania',
-    'Andorra',
-    'Armenia',
-    'Austria',
-    'Azerbaijan',
-    'Belarus',
-    'Belgium',
-    'Bosnia and Herzegovina',
-    'Bulgaria',
-    'Croatia',
-    'Cyprus',
-    'Czech Republic',
-    'Denmark',
-    'Estonia',
-    'Finland',
-    'France',
-    'Georgia',
-    'Germany',
-    'Greece',
-    'Hungary',
-    'Iceland',
-    'Ireland',
-    'Italy',
-    'Kazakhstan',
-    'Kosovo',
-    'Latvia',
-    'Liechtenstein',
-    'Lithuania',
-    'Luxembourg',
-    'Macedonia',
-    'Malta',
-    'Moldova',
-    'Monaco',
-    'Montenegro',
-    'Netherlands',
-    'Norway',
-    'Poland',
-    'Portugal',
-    'Romania',
-    'Russia',
-    'San Marino',
-    'Serbia',
-    'Slovakia',
-    'Slovenia',
-    'Spain',
-    'Sweden',
-    'Switzerland',
-    'Turkey',
-    'Ukraine',
-    'United Kingdom',
-    'Vatican City'
-  ];
+class TitleRow extends StatelessWidget {
+  const TitleRow({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("My List"),
+    return Container(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: const Text(
+        'ALL INBOXES',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.grey,
+          height: 2,
+        ),
       ),
-      body: ListView(
-        children: [
-          Card(
-            elevation: 20,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/sun.jpg'),
-              ),
-              title: Text('Sun'),
-              subtitle: Text('Hot and yellow'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {
-                print('Sun');
-              },
-            ),
+    );
+  }
+}
+
+class Mails extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text('Title'),
           ),
-          Card(
-            elevation: 20,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/moon.jpg'),
-              ),
-              title: Text('Moon'),
-              subtitle: Text('cold and white'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {
-                print('Moon');
-              },
-            ),
+          ListTile(
+            title: Text('Title'),
           ),
-          Card(
-            elevation: 20,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage('assets/star.jpg'),
-              ),
-              title: Text('Star'),
-              subtitle: Text('beautiful at night'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {
-                print('star');
-              },
-            ),
+          ListTile(
+            title: Text('Title'),
           ),
         ],
       ),
