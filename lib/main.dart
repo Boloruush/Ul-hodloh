@@ -15,6 +15,8 @@ class SecondApp extends StatelessWidget {
           title: Text("My ui"),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
               elevation: 10,
@@ -39,6 +41,7 @@ class TitleRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(left: 20),
       padding: const EdgeInsets.only(bottom: 8),
       child: const Text(
         'ALL INBOXES',
