@@ -80,15 +80,51 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("My List"),
       ),
-      body: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 1.0),
-            color: Colors.tealAccent,
-            child: Text('$index'),
-          );
-        },
+      body: ListView(
+        children: [
+          Card(
+            elevation: 20,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/sun.jpg'),
+              ),
+              title: Text('Sun'),
+              subtitle: Text('Hot and yellow'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {
+                print('Sun');
+              },
+            ),
+          ),
+          Card(
+            elevation: 20,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/moon.jpg'),
+              ),
+              title: Text('Moon'),
+              subtitle: Text('cold and white'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {
+                print('Moon');
+              },
+            ),
+          ),
+          Card(
+            elevation: 20,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/star.jpg'),
+              ),
+              title: Text('Star'),
+              subtitle: Text('beautiful at night'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {
+                print('star');
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
